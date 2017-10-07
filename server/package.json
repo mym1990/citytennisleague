@@ -1,0 +1,15 @@
+{
+  "name": "databasepackage",
+  "version": "1.0.0",
+  "description": "Used for testing data",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "DesmondSullivan",
+  "license": "ISC",
+  "dependencies": {
+    "mongod": "^2.0.0"
+  }
+}
