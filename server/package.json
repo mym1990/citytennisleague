@@ -5,11 +5,14 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "start-2": "NODE_PATH=. node server2.js"
   },
   "author": "DesmondSullivan",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
     "mongod": "^2.0.0"
   }
 }
