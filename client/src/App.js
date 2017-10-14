@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import ScoreInput from './Components/ScoreInput';
+import PriceCard from './Components/PriceCard';
 
 function User(props) {
     return(
@@ -46,15 +47,13 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            users: []
+            users: [
+                {
+                    "firstName": "Stas",
+                    "lastName": "Christiansen"
+                }
+            ]
         };
-    }
-    componentWillMount() {
-        fetch('/users')
-            .then(res => res.json())
-            .then(data => {
-                this.setState({ users: data });
-            })
     }
 
     handleAddUser(newUser) {
@@ -76,11 +75,17 @@ class App extends React.Component {
     render() {
         return (
           <div className="App">
-            <UserList users={this.state.users} />
-              <AddUser onAddUser={this.handleAddUser.bind(this)} />
+              <div className={"content"}>
+                  <div className={"right-body"}>
+                      <PriceCard city="San Francisco" />
+                      <PriceCard city="Atlanta" />
+                      <PriceCard city="Nashville" />
+                  </div>
+              </div>
           </div>
         );
       }
 }
-
+//<UserList users={this.state.users} />
+//<AddUser onAddUser={this.handleAddUser.bind(this)} />
 export default App;
