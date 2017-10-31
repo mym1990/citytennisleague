@@ -2,46 +2,15 @@ import React from 'react';
 import './App.css';
 import ScoreInput from './Components/ScoreInput';
 import PriceCard from './Components/PriceCard';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
-function User(props) {
-    return(
-        <li>
-            <h4>{props.firstName}</h4>
-            <p>{props.lastName}</p>
-        </li>
-    );
-}
-
-function UserList(props) {
-    return(
-        <ul className='list-group'>
-            {props.users.map(User)}
-        </ul>
-    );
-}
-
-function AddUser(props) {
-    const submit = () => {
-        const firstNameInput = document.querySelector('#firstName');
-        const lastNameInput = document.querySelector('#lastName');
-
-        props.onAddUser(
-            {
-                firstName: firstNameInput.value,
-                lastName: lastNameInput.value
-            }
-        );
-    };
-
-        return (
-            <div style={{display: 'flex'}}>
-                <input id="firstName" placeholder="First Name" />
-                <input id="lastName" placeholder="Last Name" />
-
-                <button type="button" onClick={submit}> Add User </button>
-            </div>
-        );
-}
+const Links = () => (
+    <nav>
+        <NavLink exact activeClassName="active" to="/">Home</NavLink>
+        <NavLink activeClassName="active" to={{pathname: '/about'}}>About</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+    </nav>
+)
 
 class App extends React.Component {
     constructor() {
@@ -56,36 +25,18 @@ class App extends React.Component {
         };
     }
 
-    handleAddUser(newUser) {
-        fetch('/users', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newUser)
-        })
-            .then(res => res.json())
-            .then(user => {
-                this.setState({
-                    users: this.state.users.concat(newUser)
-                });
-            })
-    }
-
     render() {
         return (
-          <div className="App">
-              <div className={"content"}>
-                  <div className={"right-body"}>
-                      <PriceCard city="San Francisco" />
-                      <PriceCard city="Atlanta" />
-                      <PriceCard city="Nashville" />
-                  </div>
-              </div>
-          </div>
+          <Router>
+            <div>
+                <Links />
+                <Route exact path="/" render={() => <h1>Home</h1>} />
+                <Route exact path="/about" render={() => <h1>About</h1>} />
+                <Route exact path="/contact" render={() => <h1>Contact</h1>} />
+            </div>
+          </Router>
         );
       }
 }
-//<UserList users={this.state.users} />
-//<AddUser onAddUser={this.handleAddUser.bind(this)} />
+
 export default App;
