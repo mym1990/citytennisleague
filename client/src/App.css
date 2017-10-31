@@ -4,46 +4,16 @@
 
 body {
   background: #f9f7f2;
-  display: inline;
 }
 
-.setInput {
-  width: 20px;
-  margin: 2px;
-}
-
-.right-body {
-  width: 100%;
-  margin: auto 0;
-}
-
-.padding {
-  padding: 10px;
-}
-
-.priceCard-container {
-  float: left;
+.welcomeLeft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 400px;
-  width: 250px;
-  background-color: #fcfcfc;
-  margin: 50px;
-  box-shadow: 5px 8px 50px rgba(0, 0, 0, .3);
-  border-radius: 10px;
-  overflow: hidden;
 }
 
-.temperatures {
-  overflow: auto;
-  margin: auto 0;
-}
-.temperatures > h4, h3, h2{
-  color: #dc7a13;
-}
+.welcome {
+  background-color: whitesmoke;
 
-.imageBorder {
-  border-radius: 10px;
-}
-
-p {
-  font-size: 8px;
 }

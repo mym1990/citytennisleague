@@ -1,47 +1,13 @@
 import React from 'react';
 import './App.css';
-import ScoreInput from './Components/ScoreInput';
-import PriceCard from './Components/PriceCard';
+import Container from 'muicss/lib/react/container';
+import Row from 'muicss/lib/react/row';
+import Col from 'muicss/lib/react/col';
+import Button from 'muicss/lib/react/button';
+import Panel from 'muicss/lib/react/panel';
 
-function User(props) {
-    return(
-        <li>
-            <h4>{props.firstName}</h4>
-            <p>{props.lastName}</p>
-        </li>
-    );
-}
 
-function UserList(props) {
-    return(
-        <ul className='list-group'>
-            {props.users.map(User)}
-        </ul>
-    );
-}
 
-function AddUser(props) {
-    const submit = () => {
-        const firstNameInput = document.querySelector('#firstName');
-        const lastNameInput = document.querySelector('#lastName');
-
-        props.onAddUser(
-            {
-                firstName: firstNameInput.value,
-                lastName: lastNameInput.value
-            }
-        );
-    };
-
-        return (
-            <div style={{display: 'flex'}}>
-                <input id="firstName" placeholder="First Name" />
-                <input id="lastName" placeholder="Last Name" />
-
-                <button type="button" onClick={submit}> Add User </button>
-            </div>
-        );
-}
 
 class App extends React.Component {
     constructor() {
@@ -56,35 +22,53 @@ class App extends React.Component {
         };
     }
 
-    handleAddUser(newUser) {
-        fetch('/users', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newUser)
-        })
-            .then(res => res.json())
-            .then(user => {
-                this.setState({
-                    users: this.state.users.concat(newUser)
-                });
-            })
-    }
-
     render() {
+
         return (
-          <div className="App">
-              <div className={"content"}>
-                  <div className={"right-body"}>
-                      <PriceCard city="San Francisco" />
-                      <PriceCard city="Atlanta" />
-                      <PriceCard city="Nashville" />
-                  </div>
-              </div>
-          </div>
+            <Container fluid={true}>
+                <Row>
+                    <Col md="9"><h3>City League Tennis</h3></Col>
+                    <Col md="3">
+                        <Button color="primary">Join Free</Button>
+                        <Button color="accent">Sign In</Button>
+                    </Col>
+                </Row>
+
+                <Row className="welcome">
+                    <Col className="welcomeLeft" md="8">
+                        <row>
+                            <h2>Tennis league with convenient and flexible match scheduling.</h2>
+                        </row>
+                        <row>
+                            <Button color="primary">Join Free</Button>
+                        </row>
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col md="3">
+                        <Panel>
+                            Content
+                        </Panel>
+                    </Col>
+
+                    <Col md="4">
+                        <Panel>
+                            Content
+                        </Panel>
+                    </Col>
+
+                    <Col md="4">
+                        <Panel>
+                            Content
+                        </Panel>
+                    </Col>
+                </Row>
+
+
+            </Container>
         );
-      }
+    }
 }
 //<UserList users={this.state.users} />
 //<AddUser onAddUser={this.handleAddUser.bind(this)} />
