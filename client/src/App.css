@@ -1,62 +1,31 @@
+body {
+  margin: 0;
+  background: #C8E6C9;
+}
+
+
 a {
   margin: 5px;
 }
 
-a, a:visited {
-  color: blue;
-}
-
-a.active {
-  color: red;
-}
-
-body {
-  background: #f9f7f2;
+ul {
+  list-style: none;
   display: inline;
 }
 
-h1 {
-
-  
+li {
+  display: inline;
 }
 
-.setInput {
-  width: 20px;
-  margin: 2px;
+
+.centered {
+  margin-top: 10em;
 }
 
-.right-body {
-  width: 100%;
-  margin: auto 0;
-}
+
+
+
 
 .padding {
   padding: 10px;
-}
-
-.priceCard-container {
-  float: left;
-  height: 400px;
-  width: 200px;
-  background-color: #fcfcfc;
-  margin: 50px;
-  box-shadow: 5px 8px 50px rgba(0, 0, 0, .3);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.temperatures {
-  overflow: auto;
-  margin: auto 0;
-}
-.temperatures > h4, h3, h2{
-  color: #dc7a13;
-}
-
-.imageBorder {
-  border-radius: 10px;
-}
-
-p {
-  font-size: 8px;
 }
