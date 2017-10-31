@@ -1,10 +1,23 @@
-.App {
-  text-align: center;
+a {
+  margin: 5px;
+}
+
+a, a:visited {
+  color: blue;
+}
+
+a.active {
+  color: red;
 }
 
 body {
   background: #f9f7f2;
   display: inline;
+}
+
+h1 {
+
+  
 }
 
 .setInput {
@@ -24,7 +37,7 @@ body {
 .priceCard-container {
   float: left;
   height: 400px;
-  width: 250px;
+  width: 200px;
   background-color: #fcfcfc;
   margin: 50px;
   box-shadow: 5px 8px 50px rgba(0, 0, 0, .3);
